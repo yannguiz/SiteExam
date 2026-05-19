@@ -1,3 +1,22 @@
 .texte-du-post {
     font-family: 'Times New Roman', Times, serif;
 }
+
+body {
+  min-height: 100vh;
+  background-color: #f9f9fa; /* couleur de fond */
+  background-image: url('/assets/images/coolbackgrounds-topography-hyphy.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+model-viewer {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 500px;
+    height: 500px;
+    display: block;
+    margin: auto;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+}

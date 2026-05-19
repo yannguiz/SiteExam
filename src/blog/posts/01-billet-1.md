@@ -16,12 +16,11 @@ ljfgfkhgdgfjfjfjh
 ---
     <!-- Use it like any other HTML element -->
     <model-viewer class="mfin"
-    src="/assets/models/ConsoleV2Final.glb"
+    src="/assets/models/ConsoleV2Finalfull.glb"
     alt="Console Final"
-    shadow-intensity="1"
     exposure="0.2"
     camera-controls
-    style="width: 100%; height: 500px; background-color: #e8e5e5;"
+    camera-orbit="180deg 0deg auto"
      >
     </model-viewer>
 ---
