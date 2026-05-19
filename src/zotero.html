@@ -1,0 +1,22 @@
+---
+layout: layouts/base.html
+title: "Ma bibliographie"
+description: "Exemple de données Zotero intégrées avec Eleventy"
+---
+
+<h1>Atelier 11ty, récupérer des données hébergés en remote test </h1>
+
+<ul class="bibliography-list">
+  {% for item in bibliographie %}
+    <li class="bibliography-item">
+      <strong>{{ item.data.title }}</strong><br />
+      {% if item.data.creators %}
+        {% for creator in item.data.creators %}
+          {{ creator.firstName }} {{ creator.lastName }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      {% endif %}
+      — {{ item.data.date }}
+    </li>
+  {% endfor %}
+
+</ul>
