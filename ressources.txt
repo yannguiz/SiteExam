@@ -4,3 +4,6 @@ https://modelviewer.dev/#section-loading
 
 zindex :
 https://www.w3schools.com/css/css_z-index.asp
+
+
+// Le filtre pour la date est celui de Karly Nelson trouvé sur : https://karlynelson.com/posts/how-to-handle-dates-in-11ty/

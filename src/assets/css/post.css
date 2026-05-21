@@ -6,18 +6,18 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-color: #5050ba;
   background-image: url('/assets/images/coolbackgrounds-topography-hyphy.svg');
   background-size: cover;
   background-position: center;
 }
 
-.texte-du-post {
-  font-family: 'Times New Roman', Times, serif;
-  flex: 1;
-  overflow-y: auto;
-  min-height: 0;
-  padding: 1rem;
+@media (max-width: 700px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
 }
 
 model-viewer {
@@ -29,19 +29,37 @@ model-viewer {
   z-index: 0;
 }
 
+.scene {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    top: 28%;
+    gap: 4rem;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .scene {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20rem;
+        top: 8%;
+    }
+  }
 
 /* Début style scene gauche */
 .scene-gauche {
-    position: absolute;
-    left: 15%;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 20%;
+    min-width: 15rem;
     z-index: 1;
     padding: 0.5rem;
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.06);
-    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);*/
     font-family: inherit;
+    pointer-events: auto;
 }
 
 .scene-gauche .id {
@@ -103,21 +121,33 @@ li + li::before {
 /* Fin style scene gauche */
 
 .scene-droite {
-    position: absolute;
-    right: 15%;
-    top: 50%;
-    transform: translateY(-50%);
     width: 20%;
+    min-width: 25rem;
     z-index: 1;
     padding: 0.5rem;
-    backdrop-filter: blur(5px);
+    /*backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.06);
-    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);*/
     font-family: inherit;
+    pointer-events: auto;
 }
 
 .scene-droite h2 {
-  color: rgba(229, 229, 229, 0.95);
+  color: rgba(229, 229, 229, 1);
   font-style: normal;
   margin: 0;
+}
+
+.scene-droite p {
+  color: #f0ede8;
+  font-style: normal;
+  max-height: 20rem;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+@media (max-width: 700px) {
+  .scene-droite p {
+    font-style: normal;
+  }
 }

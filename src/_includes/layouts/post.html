@@ -7,8 +7,18 @@ layout: layouts/base.html
  <!--  -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-<div class="scene">
+<model-viewer class="mfin"
+    src="{{ model }}"
+    alt="{{ title }}"
+    auto-rotate
+    rotation-per-second="-20deg"
+    exposure="0.3"
+    camera-controls
+    camera-orbit="180deg 45deg auto"
+    field-of-view="5deg">
+</model-viewer>
 
+<div class="scene">
 
     <div class="scene-gauche">
         <h1 class="id">{{ id }}</h1>
@@ -25,20 +35,8 @@ layout: layouts/base.html
         </ul>
     </div>
 
-    <model-viewer class="mfin"
-        src="{{ model }}"
-        alt="{{ title }}"
-        auto-rotate
-        rotation-per-second="-20deg"
-        exposure="0.3"
-        camera-controls
-        camera-orbit="180deg 45deg auto"
-        field-of-view="5deg">
-    </model-viewer>
-
     <div class="scene-droite">
         {{ content | safe }}
     </div>
-  
 
 </div>
