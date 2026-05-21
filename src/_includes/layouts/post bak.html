@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>{{ title }}</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='/assets/css/global.css'>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    </head>
+<body>
+
+    <h1>{{ title }}</h1>
+    <header>
+        <ul>
+            {% for tag in tags %}
+                <li>
+                    <a href="/blog/tag/{{ tag | slugify }}">{{ tag }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </header>
+    <div class="texte-du-post">
+        {{ content | safe }}
+    </div>
+</body>
+</html>

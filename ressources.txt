@@ -1,3 +1,6 @@
 intégration de model 3d :
 https://dev.to/checode/how-to-integrate-3d-models-into-your-website-using-only-html-and-css-lok
 https://modelviewer.dev/#section-loading
+
+zindex :
+https://www.w3schools.com/css/css_z-index.asp

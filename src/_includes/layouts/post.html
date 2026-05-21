@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>{{ title }}</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='/assets/css/global.css'>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-    </head>
-<body>
+---
+layout: layouts/base.html
+---
+<!-- Pour le model viewer"
+ https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/
+ -->
+ <!--  -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-    <h1>{{ title }}</h1>
-    <header>
+<div class="scene">
+
+
+    <div class="scene-gauche">
+        <h1 class="id">{{ id }}</h1>
+        <hr class="gauche-line" /> 
+        <h2 class="tire-meta">{{ title }}</h2>
+        <p class="date">{{ date | postDate }}</p>
+        <span class="texttag">Tags :</span>
         <ul>
             {% for tag in tags %}
                 <li>
@@ -19,9 +23,22 @@
                 </li>
             {% endfor %}
         </ul>
-    </header>
-    <div class="texte-du-post">
+    </div>
+
+    <model-viewer class="mfin"
+        src="{{ model }}"
+        alt="{{ title }}"
+        auto-rotate
+        rotation-per-second="-20deg"
+        exposure="0.3"
+        camera-controls
+        camera-orbit="180deg 45deg auto"
+        field-of-view="5deg">
+    </model-viewer>
+
+    <div class="scene-droite">
         {{ content | safe }}
     </div>
-</body>
-</html>
+  
+
+</div>

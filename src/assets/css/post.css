@@ -1,22 +1,123 @@
-.texte-du-post {
-    font-family: 'Times New Roman', Times, serif;
-}
+/* Le css du séparateur de la liste vient de Alohci : https://stackoverflow.com/questions/63184650/how-to-set-separator-between-list-element-properly-with-css-and-html  */
+
 
 body {
-  min-height: 100vh;
-  background-color: #f9f9fa; /* couleur de fond */
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #5050ba;
   background-image: url('/assets/images/coolbackgrounds-topography-hyphy.svg');
   background-size: cover;
   background-position: center;
 }
 
+.texte-du-post {
+  font-family: 'Times New Roman', Times, serif;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 1rem;
+}
+
 model-viewer {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    width: 500px;
-    height: 500px;
-    display: block;
-    margin: auto;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
+/* Début style scene gauche */
+.scene-gauche {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 0.5rem;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    font-family: inherit;
+}
+
+.scene-gauche .id {
+    font-size: 2rem;
+    color: rgba(229, 229, 229, 0.95);
+    margin: 0;
+}
+
+.scene-gauche .gauche-line {
+  border-top: 0.15rem solid;
+  color: rgba(169, 167, 167, 0.8);
+}
+
+.scene-gauche .tire-meta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: normal;
+    color: #f0ede8;
+    margin: 0rem;
+}
+
+.scene-gauche .date {
+  font-style: italic;
+  color: #f0ede8b2;
+  margin-top: 0.2rem;
+}
+
+.scene-gauche .texttag {
+  color : rgba(255, 255, 255, 0.45);
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.scene-gauche ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+.scene-gauche ul li {
+    display: inline;
+}
+
+li + li::before {
+  content: '|';
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.scene-gauche ul a {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+}
+
+.scene-gauche ul :hover {
+  color: rgb(234, 234, 234);
+}
+/* Fin style scene gauche */
+
+.scene-droite {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20%;
+    z-index: 1;
+    padding: 0.5rem;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    font-family: inherit;
+}
+
+.scene-droite h2 {
+  color: rgba(229, 229, 229, 0.95);
+  font-style: normal;
+  margin: 0;
 }

@@ -7,6 +7,60 @@ img {
 }
 
 html {
-    font-family: Raleway;
-    font-style: italic;
+  font-family: Raleway;
+  font-style: italic;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  background-color: #2a3540;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.3rem 0;
+  position: relative;
+  transition: color 0.2s;
+  z-index: 1;
+}
+
+nav a:hover {
+  color: white;
+  z-index: 1;
+}
+
+nav a.active {
+  color: white;
+  font-weight: 500;
+  z-index: 1;
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  z-index: 1;
 }
