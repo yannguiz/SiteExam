@@ -4,6 +4,7 @@ body {
   height: 100dvh;
   overflow: hidden;
   display: flex;
+  flex-direction: flex-start;
   flex-direction: column;
   justify-content: center;
   background-color: #5050ba;
@@ -26,7 +27,7 @@ model-viewer.mfin {
     align-items: flex-start;
     box-sizing: border-box;
     padding: 2rem;
-    top: 20%;
+    top: 0%;
     pointer-events: none;
 }
 
@@ -194,7 +195,7 @@ li + li::before {
       width: 100%; 
       flex-direction: column;
       align-items: flex-start;
-      margin-top: 10%;
+      margin-top: 30%;
       gap: 18rem;
       padding: 0;
   }
@@ -221,7 +222,6 @@ li + li::before {
 @media (max-width: 768px) {
   .scene-right p {
     max-height: unset;
-    overflow-y: unset;
     padding: 5%;
     margin: 0;
   }
@@ -230,9 +230,20 @@ li + li::before {
 @media (max-width: 768px) {
   .scene-right-phantom p {
     max-height: unset;
-    overflow-y: unset;
     padding: 5%;
     margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right .md {
+    overflow-y: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-phantom .md {
+    overflow-y: unset;
   }
 }
 

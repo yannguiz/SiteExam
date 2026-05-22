@@ -19,6 +19,8 @@ body {
 nav {
   background-color: #2a3540;
   width: 100%;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,14 +69,21 @@ nav a.active::after {
 }
 
 footer {
+    position: fixed;
     width: 100%;
     height: 10rem;
+    bottom: 0;
     background-color: #2a3540;
     margin-top: auto;
     box-sizing: border-box;
     z-index: 5;
 }
 
+@media (max-width: 768px) {
+  footer {
+    height: 8rem;
+  }
+}
 
 div.gallery {
   display: flex;
