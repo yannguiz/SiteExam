@@ -4,25 +4,25 @@ layout: layouts/base.html
 <!-- Pour le model viewer"
  https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/
  -->
- <!--  -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 
 <model-viewer class="mfin"
     src="{{ model }}"
     alt="{{ title }}"
-    auto-rotate
-    rotation-per-second="-20deg"
     exposure="0.3"
     camera-controls
+    camera-target="0m 0m 0m"
     camera-orbit="180deg 45deg auto"
     field-of-view="5deg">
 </model-viewer>
 
+
 <div class="scene">
 
-    <div class="scene-gauche">
+    <div class="scene-left">
         <h1 class="id">{{ id }}</h1>
-        <hr class="gauche-line" /> 
+        <hr class="left-line" /> 
         <h2 class="tire-meta">{{ title }}</h2>
         <p class="date">{{ date | postDate }}</p>
         <span class="texttag">Tags :</span>
@@ -35,8 +35,62 @@ layout: layouts/base.html
         </ul>
     </div>
 
-    <div class="scene-droite">
-        {{ content | safe }}
+    <div class="scene-right-wrapper">
+        <div class="scene-right">
+            {{ content | safe }}
+        </div>
+        <div class="scene-right-phantom">
+            {{ content | safe }}
+        </div>
     </div>
 
 </div>
+
+<!-- Le script de synchronisation du scroll des div vient de ce site :
+https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scroll-position-of-two-divs.html
+-->
+
+<script>
+    // Function to synchronize scroll position
+    function syncScroll(div1, div2) {
+        // Add scroll event listener to div1
+        div1.addEventListener('scroll', function () {
+            // Synchronize the scroll position of div2 with div1
+            div2.scrollTop = div1.scrollTop;
+        });
+    }
+
+    // Get references to the divs
+    var div1 = document.querySelector('.scene-right-phantom p');
+    var div2 = document.querySelector('.scene-right p');
+
+    // Synchronize the scroll position of div2 with div1
+    syncScroll(div1, div2);
+</script>
+
+
+<!-- ATTENTION ! Voici un script fait avec IAg. 
+Je me le suis permis car il s'agit juste de peaufiner le design reactif mobile.
+Son rôle est de modifier la position du modèle lorsqu'on change de taille d'écran.
+-->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const viewer = document.querySelector('model-viewer');
+
+    function applySettings() {
+        if (window.innerWidth <= 768) {
+            viewer.setAttribute('camera-target', '0m 0m 150m');
+            viewer.setAttribute('camera-orbit', '180deg 45deg auto');
+            viewer.setAttribute('field-of-view', '40deg');
+        } else {
+            viewer.setAttribute('camera-target', '0m 0m 0m');
+            viewer.setAttribute('camera-orbit', '180deg 45deg auto');
+            viewer.setAttribute('field-of-view', '5deg');
+        }
+    }
+
+    applySettings();
+    window.addEventListener('resize', applySettings);
+});
+</script>

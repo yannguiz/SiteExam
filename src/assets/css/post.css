@@ -1,6 +1,5 @@
 /* Le css du séparateur de la liste vient de Alohci : https://stackoverflow.com/questions/63184650/how-to-set-separator-between-list-element-properly-with-css-and-html  */
 
-
 body {
   height: 100dvh;
   overflow: hidden;
@@ -13,28 +12,11 @@ body {
   background-position: center;
 }
 
-@media (max-width: 700px) {
-    body {
-        height: auto;
-        overflow-y: auto;
-    }
-}
-
 model-viewer {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
-}
-
-@media (max-width: 700px) {
-  model-viewer {
-    position: absolute;
-    top: 10%;
-    width: 80%;
-    height: 80%;
-    z-index: 1;
-  }
 }
 
 .scene {
@@ -48,17 +30,8 @@ model-viewer {
     pointer-events: none;
 }
 
-@media (max-width: 700px) {
-    .scene {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 10%;
-        gap: 20rem;
-    }
-}
-
-/* Début style scene gauche */
-.scene-gauche {
+/* Début style scene left */
+.scene-left {
     width: 20%;
     min-width: 15rem;
     z-index: 2;
@@ -70,18 +43,18 @@ model-viewer {
     pointer-events: auto;
 }
 
-.scene-gauche .id {
+.scene-left .id {
     font-size: 2rem;
     color: rgba(229, 229, 229, 0.95);
     margin: 0;
 }
 
-.scene-gauche .gauche-line {
+.scene-left .left-line {
   border-top: 0.15rem solid;
   color: rgba(169, 167, 167, 0.8);
 }
 
-.scene-gauche .tire-meta {
+.scene-left .tire-meta {
     font-size: 1.2rem;
     font-weight: bold;
     font-style: normal;
@@ -89,26 +62,26 @@ model-viewer {
     margin: 0rem;
 }
 
-.scene-gauche .date {
+.scene-left .date {
   font-style: italic;
   color: #f0ede8b2;
   margin-top: 0.2rem;
 }
 
-.scene-gauche .texttag {
+.scene-left .texttag {
   color : rgba(255, 255, 255, 0.45);
   font-style: normal;
   font-size: 0.8rem;
 }
 
-.scene-gauche ul {
+.scene-left ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: inline;
 }
 
-.scene-gauche ul li {
+.scene-left ul li {
     display: inline;
 }
 
@@ -117,18 +90,21 @@ li + li::before {
   color: rgba(255, 255, 255, 0.45);
 }
 
-.scene-gauche ul a {
+.scene-left ul a {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.45);
     text-decoration: none;
 }
 
-.scene-gauche ul :hover {
+.scene-left ul :hover {
   color: rgb(234, 234, 234);
 }
-/* Fin style scene gauche */
+/* Fin style scene left */
 
-.scene-droite {
+/* Début style scene right */
+
+.scene-right {
+  grid-area: 1 / 1;
     width: 20%;
     min-width: 25rem;
     z-index: 0;
@@ -140,13 +116,13 @@ li + li::before {
     pointer-events: auto;
 }
 
-.scene-droite h2 {
+.scene-right h2 {
   color: rgba(229, 229, 229, 1);
   font-style: normal;
   margin: 0;
 }
 
-.scene-droite p {
+.scene-right p {
   color: #f0ede8;
   font-style: normal;
   max-height: 20rem;
@@ -154,9 +130,115 @@ li + li::before {
   text-align: justify;
 }
 
-@media (max-width: 700px) {
-  .scene-droite p {
+/* fin style scene right */
+
+/* Début style scene right fantôme */
+
+.scene-right-wrapper {
+    display: grid;
+    width: 20%;
+    min-width: 25rem;
+}
+
+.scene-right-phantom {
+    grid-area: 1 / 1;
+    width: 20%;
+    min-width: 25rem;
+    z-index: 2;
+    padding: 0.5rem;
+    /*backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);*/
+    font-family: inherit;
+    pointer-events: auto;
+}
+
+.scene-right-phantom h2 {
+  color: rgba(229, 229, 229, 0);
+  font-style: normal;
+  margin: 0;
+}
+
+.scene-right-phantom p {
+  color: #f0ede800;
+  font-style: normal;
+  max-height: 20rem;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+/* Fin style scene right fantôme */
+
+/* Design réactif */
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .scene {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10%;
+        gap: 18rem;
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+  .scene-right {
+    padding: 5%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-phantom {
+    padding: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right p {
     max-height: unset;
     overflow-y: unset;
+    padding: 5%;
+    margin: 0;
   }
+}
+
+@media (max-width: 768px) {
+  .scene-right-phantom p {
+    max-height: unset;
+    overflow-y: unset;
+    padding: 5%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-wrapper {
+      width: 100%;
+      min-width: unset;
+  }
+}
+@media (max-width: 768px) {
+    .scene-left {
+      padding: 5%;
+      margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    model-viewer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100dvh;
+        z-index: 1;
+    }
 }

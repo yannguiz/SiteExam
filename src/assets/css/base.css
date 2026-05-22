@@ -1,6 +1,6 @@
 img {
   display: block;
-  margin-gauche: auto;
+  margin-left: auto;
   margin-right: auto;
   width: 50%;
   
@@ -30,7 +30,7 @@ nav {
   padding-top: 1.5rem;
   padding-bottom: 2.5rem;
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 5;
 }
 
 nav a {
@@ -39,30 +39,30 @@ nav a {
   padding: 0.3rem 0;
   position: relative;
   transition: color 0.2s;
-  z-index: 1;
+  z-index: 5;
 }
 
 nav a:hover {
   color: white;
-  z-index: 1;
+  z-index: 5;
 }
 
 nav a.active {
   color: white;
   font-weight: 500;
-  z-index: 1;
+  z-index: 5;
 }
 
 nav a.active::after {
   content: '';
   position: absolute;
   bottom: -10px;
-  gauche: 0;
+  left: 0;
   right: 0;
   height: 2px;
   background: white;
   border-radius: 2px;
-  z-index: 1;
+  z-index: 5;
 }
 
 footer {
@@ -71,5 +71,5 @@ footer {
     background: rgba(255, 255, 255, 1);
     border-top: 0.2rem solid rgb(39, 38, 38);
     margin-top: auto;
-    z-index: 1;
+    z-index: 5;
 }
