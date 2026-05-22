@@ -24,13 +24,14 @@ model-viewer {
     display: flex;
     align-items: flex-start;
     box-sizing: border-box;
-    padding: 2rem 5%;
+    padding: 2rem;
     top: 20%;
     pointer-events: none;
 }
 
 .scene-empty {
     flex: 0.5;
+    margin-right: 15%;
 }
 
 /* Début style scene left */

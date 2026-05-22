@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.html
 ---
-<!-- Pour le model viewer"
+<!-- Pour le model viewer :
  https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/
  -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -66,4 +66,27 @@ https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scr
 
     // Synchronize the scroll position of div2 with div1
     syncScroll(div1, div2);
+</script>
+
+
+<!-- ATTENTION ! Le script suivant a été fait par IAg :
+ -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const viewer = document.querySelector('model-viewer');
+
+    function applySettings() {
+        if (window.innerWidth <= 768) {
+            viewer.setAttribute('camera-target', '0m 0m 0m');
+            viewer.setAttribute('field-of-view', '5deg');
+        } else {
+            viewer.setAttribute('camera-target', '-80m 0m 0m');
+            viewer.setAttribute('field-of-view', '10deg');
+        }
+    }
+
+    applySettings();
+    window.addEventListener('resize', applySettings);
+});
 </script>
