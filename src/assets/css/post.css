@@ -26,8 +26,9 @@ model-viewer {
     justify-content: space-between;
     padding: 2rem 5%;
     top: 25%;
-    gap: 4rem;
+    gap: 9rem;
     pointer-events: none;
+    box-sizing: border-box;
 }
 
 /* Début style scene left */
@@ -35,6 +36,7 @@ model-viewer {
     width: 20%;
     min-width: 15rem;
     z-index: 2;
+    box-sizing: border-box;
     padding: 0.5rem;
     /* backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.06);
@@ -102,12 +104,12 @@ li + li::before {
 /* Fin style scene left */
 
 /* Début style scene right */
-
 .scene-right {
   grid-area: 1 / 1;
     width: 20%;
     min-width: 25rem;
     z-index: 0;
+    box-sizing: border-box;
     padding: 0.5rem;
     /*backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.06);
@@ -136,8 +138,8 @@ li + li::before {
 
 .scene-right-wrapper {
     display: grid;
-    width: 20%;
-    min-width: 25rem;
+    width: 100%;
+    min-width: unset;
 }
 
 .scene-right-phantom {
@@ -145,6 +147,7 @@ li + li::before {
     width: 20%;
     min-width: 25rem;
     z-index: 2;
+    box-sizing: border-box;
     padding: 0.5rem;
     /*backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.06);
@@ -175,12 +178,12 @@ li + li::before {
     body {
         height: auto;
         overflow-y: auto;
-        overflow-x: hidden;
     }
 }
 
 @media (max-width: 768px) {
   .scene {
+      width: 100%; 
       flex-direction: column;
       align-items: flex-start;
       margin-top: 10%;
@@ -191,14 +194,19 @@ li + li::before {
 
 @media (max-width: 768px) {
   .scene-right {
+    width: 100%; 
     padding: 5%;
     margin: 0;
+    min-width: unset;
   }
 }
 
 @media (max-width: 768px) {
   .scene-right-phantom {
+    width: 100%; 
     padding: 5%;
+    margin: 0;
+    min-width: unset;
   }
 }
 
@@ -208,7 +216,6 @@ li + li::before {
     overflow-y: unset;
     padding: 5%;
     margin: 0;
-    min-width: unset;
   }
 }
 
@@ -218,7 +225,6 @@ li + li::before {
     overflow-y: unset;
     padding: 5%;
     margin: 0;
-    min-width: unset;
   }
 }
 
@@ -228,9 +234,11 @@ li + li::before {
       min-width: unset;
   }
 }
+
 @media (max-width: 768px) {
     .scene-left {
-      padding: 5%;
+      width: 100%;
+      min-width: unset;
       margin: 0;
     }
 }
