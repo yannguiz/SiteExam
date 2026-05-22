@@ -175,6 +175,7 @@ li + li::before {
     body {
         height: auto;
         overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 
