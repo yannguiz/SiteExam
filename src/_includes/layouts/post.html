@@ -4,6 +4,9 @@ layout: layouts/base.html
 <!-- Pour le model viewer :
  https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/
  -->
+ <!-- Pour la galerie :
+https://www.w3schools.com/Css/css_image_gallery.asp
+-->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 
@@ -37,14 +40,21 @@ layout: layouts/base.html
     <div class="scene-empty"></div>
     <div class="scene-right-wrapper">
         <div class="scene-right">
+            <h1 class="h1_title">{{ h1_title }}</h1> 
+            <div class="md">
             {{ content | safe }}
+            </div>
         </div>
-        <div class="scene-right-phantom">
+        <div class="scene-right-phantom">  
+            <h1 class="h1_title-phantom">{{ h1_title }}</h1> 
+            <div class="md">
             {{ content | safe }}
+            </div>
         </div>
     </div>
 
 </div>
+
 
 <!-- Le script de synchronisation du scroll des div vient de ce site :
 https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scroll-position-of-two-divs.html
@@ -61,8 +71,8 @@ https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scr
     }
 
     // Get references to the divs
-    var div1 = document.querySelector('.scene-right-phantom p');
-    var div2 = document.querySelector('.scene-right p');
+    var div1 = document.querySelector('.scene-right-phantom .md');
+    var div2 = document.querySelector('.scene-right .md');
 
     // Synchronize the scroll position of div2 with div1
     syncScroll(div1, div2);

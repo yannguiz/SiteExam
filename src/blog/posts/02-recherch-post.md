@@ -1,6 +1,7 @@
 ---
 layout: layouts/post.html
 title: "Figurine Little Nightmare"
+h1_title: "Lorem"
 id : "02"
 date: 2025-05-04
 author: Yann

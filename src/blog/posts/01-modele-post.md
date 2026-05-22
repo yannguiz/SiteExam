@@ -1,6 +1,7 @@
 ---
 layout: layouts/post.html
 title: "Console 3D édition 2025"
+h1_title : "Lorem ipsum"
 id : "01"
 date: 2025-05-04
 author: Yann
