@@ -2,7 +2,7 @@
 layout: layouts/post.html
 title: "Main de monstre scuplté en VR"
 h1_title : "Lorem ipsum"
-id : "01"
+id : "03"
 date: 2023-05-04
 author: Yann
 model: "/assets/models/hand.glb"
