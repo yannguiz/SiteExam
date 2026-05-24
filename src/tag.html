@@ -12,23 +12,43 @@ https://www.w3schools.com/howto/howto_js_filter_elements.asp
 -->
 
 <style>
-.container {
+
+body.tag{
   overflow: hidden;
 }
 
 .tags {
+  display: flex;
+  flex-direction: column;
   margin: 5vw;
+  height: calc(100vh - 10rem);
+  overflow: hidden;
+}
+
+#myBtnContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 5vw;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  overflow-y: auto;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1vw;
+  flex: 1;
 }
 
 .filterDiv {
-  float: left;
-  background-color: #2196F3;
-  color: #ffffff;
-  width: 100px;
-  line-height: 100px;
-  text-align: center;
-  margin: 2px;
-  display: none; /* Hidden by default */
+  display: none;
+    
 }
 
 /* The "show" class is added to the filtered elements */
@@ -36,41 +56,93 @@ https://www.w3schools.com/howto/howto_js_filter_elements.asp
   display: block;
 }
 
-/* Style the buttons */
-.btn {
+.Btn-container {
+  display: flex;
   backdrop-filter: blur(5px);
-  padding: 0.5rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
   background-color: #3a41484d;
-  border-radius: 20px;
+  border-radius: 30px;
   justify-content: center;
 }
 
+/* Style the buttons */
+.btn {
+    display: flex;
+    margin: 0.2rem;
+    font-size: 0.8rem;
+    color : rgba(254, 254, 254, 0.768);
+    text-decoration: none;
+    background-color: unset;
+    border: unset;
+}
+
 /* Add a light grey background on mouse-over */
-.btn:hover {
+.Btn-container:hover{
   background-color: rgba(135, 145, 155, 0.473);
 }
 
 /* Add a dark background to the active button */
-.btn.active {
+.Btn-container.active  {
   background-color: #666;
   color: white;
 }
+
+div.gallery-item-tags {
+  flex-shrink: 0;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+  width: 30vh;
+}
+
+@media (max-width: 768px) {
+  div.gallery-item-tags {
+    width: 20vh;
+  }
+}
+
+div.gallery-item-tags:hover {
+  border: 1px solid #777;
+}
+
+div.gallery-item-tags model-viewer.tag {
+   margin: 0;
+   width: 100%;
+   height: 100%;
+}
+
 </style>
 
-<body> 
+<body class="tag"> 
   <div class="tags">
     <div id="myBtnContainer">
-    <button class="btn active" onclick="filterSelection('all')">Show all</button>
-    {% for tag in collections.allTags %}
+      <button class="btn active" onclick="filterSelection('all')">Show all</button>
+      {% for tag in collections.allTags %}
+      <div class="Btn-container">
         <button class="btn" onclick="filterSelection('{{ tag }}')">{{ tag }}</button>
-    {% endfor %}
+      </div>
+      {% endfor %}
     </div>
 
     <div class="container">
     {% for post in collections.all %}
+      {% if post.data.model %}
         <div class="filterDiv {{ (post.data.tags or []) | join(' ') }}">
-        {{ post.data.title }}
+          <div class="gallery-item-tags">
+              <a href="{{ post.url }}">
+                  <model-viewer class="tag"
+                      src="{{ post.data.model }}"
+                      alt="{{ post.data.title }}"
+                      exposure="0.3"
+                      camera-orbit="180deg 45deg auto"
+                      >
+                  </model-viewer>
+              </a>
+          </div>
         </div>
+      {% endif %}
     {% endfor %}
     </div>
   </div>
@@ -123,5 +195,19 @@ for (var i = 0; i < btns.length; i++) {
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
   });
+}
+
+const filter = new URLSearchParams(window.location.search).get("filter"); // Ces dernières lignes ont été trouvé par IAg elles servent à préselectionner un tag lorsqu'on vient d'un post.
+if (filter) {
+  filterSelection(filter);
+  // Trouver le bouton dont le texte correspond et activer son container
+  var current = btnContainer.getElementsByClassName("active");
+  current[0].classList.remove("active");
+  for (var i = 0; i < btns.length; i++) {
+    if (btns[i].textContent.trim() === filter) {
+      (btns[i].closest(".Btn-container") || btns[i]).classList.add("active");
+      break;
+    }
+  }
 }
 </script>

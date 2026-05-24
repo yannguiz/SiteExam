@@ -5,22 +5,11 @@ title: L'Entrepôt 3D
 
 <style>
 
-   body.home {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-      margin: 0;
-      box-sizing: border-box;
-      padding-top: 5rem;
-      padding-bottom: 4rem;
-      box-sizing: border-box;
-   } 
-
    div.home {
       margin: 2vh;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
       font-family: "Inconsolata", monospace;
       height: 100%;
@@ -76,36 +65,6 @@ title: L'Entrepôt 3D
    height: 100%;
    }
 
-   footer.home {
-      margin: 0;
-      height: 4rem;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 0.8rem;
-      font-family: "Montserrat", monospace;
-   }
-
-   footer .foot-infos-home {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      height: 100%;
-      margin: 0;
-      align-items: center;
-   }
-
-   footer .foot-info-home {
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-   }
-
-   footer .separateur-home {
-      display: flex;
-      font-style: normal;
-      flex-direction: column;
-      margin: 0;
-   }
-
    @media (max-width: 768px) {
       h1.website_name {
          font-size: 13vw;
@@ -145,14 +104,18 @@ title: L'Entrepôt 3D
       {% endfor %}
       </div>
    </div>
+
+   <script>
+var item = document.querySelector(".gallery-home");
+if (item) {
+  item.addEventListener("wheel", function(e) {
+    item.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
+}
+</script>
 </body>
-<footer class="home">
-   <div class="foot-infos-home">
-   <p class="foot-info-home">Yann Guizaoui</p> 
-   <span class="separateur-home">|</span>
-   <p class="foot-info-home">2026</p>
-   </div>
-</footer>
+
 </html>
 
 <!-- Script de Calvin Guillot :

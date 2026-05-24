@@ -9,7 +9,7 @@ https://www.w3schools.com/Css/css_image_gallery.asp
 -->
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-
+<body class="post">
 <model-viewer class="mfin"
     src="{{ model }}"
     alt="{{ title }}"
@@ -32,7 +32,7 @@ https://www.w3schools.com/Css/css_image_gallery.asp
             {% for tag in tags %}
                 <li>
                     <div class="tag-container">
-                    <a href="/blog/tag/{{ tag | slugify }}">{{ tag }}</a>
+                    <a href="/tag/?filter={{ tag }}">{{ tag }}</a> <!-- Solution trouvé grâce à l'IAg en lien avec les deux dernières lignes de tag.html-->
                     </div>
                 </li>
             {% endfor %}
@@ -56,6 +56,24 @@ https://www.w3schools.com/Css/css_image_gallery.asp
 
 </div>
 
+    <footer class="gallery-foot">
+        <div class="gallery">
+        {% for post in collections.posts %}
+        <div class="gallery-item">
+            <a href="{{ post.url }}">
+                <model-viewer class="foot"
+                    src="{{ post.data.model }}"
+                    alt="{{ post.data.title }}"
+                    exposure="0.3"
+                    camera-orbit="180deg 45deg auto"
+                    >
+                </model-viewer>
+            </a>
+        </div>
+        {% endfor %}
+        </div>
+    </footer>
+</body>
 
 <!-- Le script de synchronisation du scroll des div vient de ce site :
 https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scroll-position-of-two-divs.html
@@ -79,6 +97,20 @@ https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scr
     syncScroll(div1, div2);
 </script>
 
+<!-- Script de Calvin Guillot :
+ https://stackoverflow.com/questions/18481308/set-mouse-wheel-to-horizontal-scroll-using-css/66917534#66917534
+ -->
+
+<script>
+var item = document.querySelector(".gallery");
+
+  window.addEventListener("wheel", function (e) {
+    if (e.deltaY > 0) item.scrollLeft += 100;
+    else item.scrollLeft -= 100;
+    item.style.scrollBehavior = "smooth"; // Ashutosh Baitharu même conversation.
+  });
+</script>
+
 <!-- ATTENTION ! Le script suivant a été fait par IAg :
  -->
 
@@ -91,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             viewer.setAttribute('camera-target', '0m 0m 0m');
             viewer.setAttribute('field-of-view', '5deg');
         } else {
-            viewer.setAttribute('camera-target', '-80m 0m 0m');
+            viewer.setAttribute('camera-target', '-40m 0m 0m');
             viewer.setAttribute('field-of-view', '10deg');
         }
     }

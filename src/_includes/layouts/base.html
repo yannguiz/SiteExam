@@ -25,23 +25,15 @@
     </nav>
     {{ content | safe }}
 
-    {% if page.url != "/" %}
-    <footer>
-        <div class="gallery">
-        {% for post in collections.posts %}
-        <div class="gallery-item">
-            <a href="{{ post.url }}">
-                <model-viewer class="foot"
-                    src="{{ post.data.model }}"
-                    alt="{{ post.data.title }}"
-                    exposure="0.3"
-                    camera-orbit="180deg 45deg auto"
-                    >
-                </model-viewer>
-            </a>
-        </div>
-        {% endfor %}
-        </div>
+    {% if "/blog/posts" not in page.url %}
+    <footer class="infos">
+    <div class="foot-infos">
+    <p class="foot-info">Yann Guizaoui</p> 
+    <span class="separateur">|</span>
+    <p class="foot-info">2026</p>
+    <span class="separateur">|</span>
+    <p class="foot-info">HNU6058</p>
+    </div>
     </footer>
     {% endif %}
 </body>
