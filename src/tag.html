@@ -5,13 +5,123 @@ pagination:
     alias: tag
     addAllPagesToCollections: true
 layout: layouts/base.html
-permalink:  /blog/tag/{{ tag | slugify }}/ 
 ---
 
-<h1>Posts Tagged with {{ tag }}</h1>
+<!-- Cette page est une copie de celle-ci adapté pour eleventy :
+https://www.w3schools.com/howto/howto_js_filter_elements.asp 
+-->
 
-<ul>
-{% for post in collections[tag] %}
-    <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{% endfor %}
-</ul>
+<style>
+.container {
+  overflow: hidden;
+}
+
+.tags {
+  margin: 5vw;
+}
+
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  backdrop-filter: blur(5px);
+  padding: 0.5rem;
+  background-color: #3a41484d;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: rgba(135, 145, 155, 0.473);
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+
+<body> 
+  <div class="tags">
+    <div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')">Show all</button>
+    {% for tag in collections.allTags %}
+        <button class="btn" onclick="filterSelection('{{ tag }}')">{{ tag }}</button>
+    {% endfor %}
+    </div>
+
+    <div class="container">
+    {% for post in collections.all %}
+        <div class="filterDiv {{ (post.data.tags or []) | join(' ') }}">
+        {{ post.data.title }}
+        </div>
+    {% endfor %}
+    </div>
+  </div>
+</body>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = btnContainer.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>

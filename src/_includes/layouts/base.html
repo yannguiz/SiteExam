@@ -10,18 +10,22 @@
     <link href="/assets/css/global.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <title>{{ title }}</title>
 </head>
 <body>
     <nav>
-        <a href="/blog" class="{{ 'active' if '/blog' in page.url }}">Blog</a>
-        <a href="/zotero" class="{{ 'active' if '/zotero' in page.url }}">Bibliographie</a>
-        <a href="/tag" class="{{ 'active' if '/tag' in page.url }}">Tag</a>
+        <div class="nav-container">
+        <a href="/" class="{{ 'active' if page.url == '/' }}">Home</a>
+        <a href="/blog/posts/01-console2025-post/" class="{{ 'active' if '/blog' in page.url }}">Galerie</a>
+        <a href="/tag" class="{{ 'active' if '/tag' in page.url }}">Tags</a>
+        </div>
     </nav>
     {{ content | safe }}
 
+    {% if page.url != "/" %}
     <footer>
         <div class="gallery">
         {% for post in collections.posts %}
@@ -39,5 +43,6 @@
         {% endfor %}
         </div>
     </footer>
+    {% endif %}
 </body>
 </html>

@@ -14,6 +14,20 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addCollection('posts', function(collectionApi) {
         return collectionApi.getFilteredByGlob('src/blog/posts/**/*.md');
     });
+    
+    // Config de johnstronic modifié à l'aide de l'IAg pour s'adapter  mes besoins.
+    // https://joshtronic.com/2025/09/07/eleventy-category-tag-pages/ 
+    eleventyConfig.addCollection('allTags', function(collectionApi) {
+    const tags = new Set();
+    collectionApi.getFilteredByGlob('src/blog/posts/**/*.md').forEach((post) => {
+        if (post.data.tags) {
+        post.data.tags.forEach((tag) => tags.add(tag));
+        }
+    });
+    return [...tags].sort();
+    });
+
+
     return {
         dir: {
             input: 'src',

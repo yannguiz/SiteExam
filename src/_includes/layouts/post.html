@@ -28,11 +28,12 @@ https://www.w3schools.com/Css/css_image_gallery.asp
         <hr class="left-line" /> 
         <h2 class="tire-meta">{{ title }}</h2>
         <p class="date">{{ date | postDate }}</p>
-        <span class="texttag">Tags :</span>
         <ul>
             {% for tag in tags %}
                 <li>
+                    <div class="tag-container">
                     <a href="/blog/tag/{{ tag | slugify }}">{{ tag }}</a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
@@ -77,7 +78,6 @@ https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scr
     // Synchronize the scroll position of div2 with div1
     syncScroll(div1, div2);
 </script>
-
 
 <!-- ATTENTION ! Le script suivant a été fait par IAg :
  -->

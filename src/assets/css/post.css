@@ -1,18 +1,4 @@
 /* Le css du séparateur de la liste vient de Alohci : https://stackoverflow.com/questions/63184650/how-to-set-separator-between-list-element-properly-with-css-and-html  */
-
-body {
-  height: 100dvh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #5050ba;
-  background-image: url('/assets/images/coolbackgrounds-topography-hyphy.svg');
-  background-size: cover;
-  background-position: center;
-}
-
 model-viewer.mfin {
   position: absolute;
   top: 0%;
@@ -72,40 +58,40 @@ model-viewer.mfin {
 
 .scene-left .date {
   font-style: italic;
-  color: #f0ede8b2;
+  font-weight: bold;
+  color : rgba(255, 255, 255, 0.641);
   margin-top: 0.2rem;
 }
 
-.scene-left .texttag {
-  color : rgba(255, 255, 255, 0.45);
-  font-style: normal;
-  font-size: 0.8rem;
-}
-
 .scene-left ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: inline;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
 }
 
 .scene-left ul li {
     display: inline;
 }
 
-li + li::before {
-  content: '|';
-  color: rgba(255, 255, 255, 0.45);
+.scene-left .tag-container {
+  display: flex;
+  backdrop-filter: blur(5px);
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  background-color: #3a41484d;
+  border-radius: 30px;
+  justify-content: center;
 }
-
 .scene-left ul a {
+    display: flex;
+    margin: 0.2rem;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.45);
+    color : rgba(254, 254, 254, 0.768);
     text-decoration: none;
 }
 
-.scene-left ul :hover {
-  color: rgb(234, 234, 234);
+.scene-left .tag-container:hover {
+  background-color: rgba(135, 145, 155, 0.473);
 }
 /* Fin style scene left */
 
@@ -129,12 +115,20 @@ li + li::before {
 .scene-right h1 {
   color: rgba(229, 229, 229, 1);
   font-style: normal;
+  margin: 0 0 1rem 0;
+}
+
+.scene-right h2 {
+  color: rgba(229, 229, 229, 1);
+  font-style: normal;
   margin: 0;
+  z-index: 0;
 }
 
 .scene-right .md p {
   color: #f0ede8;
   font-style: normal;
+  min-height: 20rem;
   max-height: 20rem;
   text-align: justify;
 }
@@ -166,6 +160,14 @@ li + li::before {
   color: rgba(229, 229, 229, 0);
   font-style: normal;
   margin: 0;
+  margin: 0 0 1rem 0;
+  z-index: 2;
+}
+
+.scene-right-phantom h2 {
+  color: rgba(229, 229, 229, 0);
+  font-style: normal;
+  margin: 0;
 }
 
 .scene-right-phantom .md {
@@ -176,6 +178,7 @@ li + li::before {
   color: #f0ede800;
   font-style: normal;
   max-height: 20rem;
+  min-height: 20rem;
   text-align: justify;
 }
 
@@ -184,19 +187,12 @@ li + li::before {
 /* Design réactif */
 
 @media (max-width: 768px) {
-    body {
-        height: auto;
-        overflow-y: auto;
-    }
-}
-
-@media (max-width: 768px) {
   .scene {
       width: 100%; 
       flex-direction: column;
       align-items: flex-start;
-      margin-top: 30%;
-      gap: 18rem;
+      margin-top: 8%;
+      gap: 15rem;
       padding: 0;
   }
 }
@@ -207,6 +203,7 @@ li + li::before {
     padding: 5%;
     margin: 0;
     min-width: unset;
+    height: auto;
   }
 }
 
@@ -216,22 +213,25 @@ li + li::before {
     padding: 5%;
     margin: 0;
     min-width: unset;
+    height: auto; 
   }
 }
 
 @media (max-width: 768px) {
-  .scene-right p {
-    max-height: unset;
+  .scene-right .md p {
     padding: 5%;
     margin: 0;
+    min-height: unset;
+    max-height: unset;
   }
 }
 
 @media (max-width: 768px) {
-  .scene-right-phantom p {
-    max-height: unset;
+  .scene-right-phantom .md p {
     padding: 5%;
     margin: 0;
+    min-height: unset;
+    max-height: unset;
   }
 }
 
