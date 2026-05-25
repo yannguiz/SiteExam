@@ -1,0 +1,304 @@
+/* Le css du séparateur de la liste vient de Alohci : https://stackoverflow.com/questions/63184650/how-to-set-separator-between-list-element-properly-with-css-and-html  */
+
+body.post{
+  padding-bottom: 8rem;
+}
+model-viewer.mfin {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.scene {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 2rem;
+    top: 0%;
+    pointer-events: none;
+}
+
+.scene-empty {
+    flex: 0.5;
+    margin-right: 15%;
+}
+
+/* Début style scene left */
+.scene-left {
+    flex: 1;
+    width: 20%;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    max-width: 20rem;
+    /* backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);*/
+    font-family: inherit;
+    pointer-events: auto;
+}
+
+.scene-left .id {
+    font-size: 2rem;
+    color: rgba(229, 229, 229, 0.95);
+    margin: 0;
+}
+
+.scene-left .left-line {
+  border-top: 0.15rem solid;
+  color: rgba(169, 167, 167, 0.8);
+}
+
+.scene-left .tire-meta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: normal;
+    color: #f0ede8;
+    margin: 0rem;
+}
+
+.scene-left .date {
+  font-style: italic;
+  font-weight: bold;
+  color : rgba(255, 255, 255, 0.641);
+  margin-top: 0.2rem;
+}
+
+.scene-left ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.scene-left ul li {
+    display: inline;
+}
+
+.scene-left .tag-container {
+  display: flex;
+  backdrop-filter: blur(5px);
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  background-color: #3a41484d;
+  border-radius: 30px;
+  justify-content: center;
+}
+.scene-left ul a {
+    display: flex;
+    margin: 0.2rem;
+    font-size: 0.8rem;
+    color : rgba(254, 254, 254, 0.768);
+    text-decoration: none;
+}
+
+.scene-left .tag-container:hover {
+  background-color: rgba(135, 145, 155, 0.473);
+}
+/* Fin style scene left */
+
+/* Début style scene right */
+.scene-right {
+  grid-area: 1 / 1;
+  width: 100%;
+  z-index: 0;
+  box-sizing: border-box;
+  /*backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);*/
+  font-family: inherit;
+  pointer-events: auto;
+}
+
+.scene-right .md {
+  overflow-y: auto;
+}
+
+.scene-right h1 {
+  color: rgba(229, 229, 229, 1);
+  font-style: normal;
+  margin: 0 0 1rem 0;
+}
+
+.scene-right h2 {
+  color: rgba(229, 229, 229, 1);
+  font-style: normal;
+  margin: 0;
+  z-index: 0;
+}
+
+.scene-right .md p {
+  color: #f0ede8;
+  font-style: normal;
+  min-height: 20rem;
+  max-height: 20rem;
+  text-align: justify;
+}
+
+/* fin style scene right */
+
+/* Début style scene right fantôme */
+
+.scene-right-wrapper {
+    flex: 1;
+    display: grid;
+    width: 100%;
+    min-width: unset;
+}
+
+.scene-right-phantom {
+    grid-area: 1 / 1;
+    width: 100%;
+    z-index: 2;
+    box-sizing: border-box;
+    /*backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.12);*/
+    font-family: inherit;
+    pointer-events: auto;
+}
+
+.scene-right-phantom h1 {
+  color: rgba(229, 229, 229, 0);
+  font-style: normal;
+  margin: 0;
+  margin: 0 0 1rem 0;
+  z-index: 2;
+}
+
+.scene-right-phantom h2 {
+  color: rgba(229, 229, 229, 0);
+  font-style: normal;
+  margin: 0;
+}
+
+.scene-right-phantom .md {
+  overflow-y: auto;
+}
+
+.scene-right-phantom .md p {
+  color: #f0ede800;
+  font-style: normal;
+  max-height: 20rem;
+  min-height: 20rem;
+  text-align: justify;
+}
+
+footer.gallery-foot {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 8rem;
+  bottom: 0;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  font-family: "Montserrat", monospace;
+  background-color: #3a41484d;
+  backdrop-filter: blur(5px);
+  margin-top: auto;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+/* Fin style scene right fantôme */
+
+/* Design réactif */
+
+@media (max-width: 768px) {
+  .scene {
+      width: 100%; 
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 8%;
+      gap: 15rem;
+      padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right {
+    width: 100%; 
+    padding: 5%;
+    margin: 0;
+    min-width: unset;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-phantom {
+    width: 100%; 
+    padding: 5%;
+    margin: 0;
+    min-width: unset;
+    height: auto; 
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right .md p {
+    padding: 5%;
+    margin: 0;
+    min-height: unset;
+    max-height: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-phantom .md p {
+    padding: 5%;
+    margin: 0;
+    min-height: unset;
+    max-height: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right .md {
+    overflow-y: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-phantom .md {
+    overflow-y: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .scene-right-wrapper {
+      width: 100%;
+      min-width: unset;
+  }
+}
+
+@media (max-width: 768px) {
+    .scene-left {
+      width: 100%;
+      min-width: unset;
+      margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .scene-empty {
+      display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    model-viewer .mfin {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100dvh;
+        z-index: 1;
+    }
+}

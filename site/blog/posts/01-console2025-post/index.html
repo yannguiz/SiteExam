@@ -1,0 +1,224 @@
+<!-- Pour la navbar "if expression"
+ https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/
+ -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/assets/css/global.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>V2 - Console portable</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+        <a href="/" class="">Home</a>
+        <a href="/blog/posts/01-console2025-post/" class="active">Galerie</a>
+        <a href="/tag" class="">Tags</a>
+        </div>
+    </nav>
+    <!-- Pour le model viewer :
+ https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/
+ -->
+ <!-- Pour la galerie :
+https://www.w3schools.com/Css/css_image_gallery.asp
+-->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<body class="post">
+<model-viewer class="mfin"
+    src="/assets/models/ConsoleV2Finalfull.glb"
+    alt="V2 - Console portable"
+    exposure="0.3"
+    camera-controls
+    camera-target="0m 0m 25m"
+    camera-orbit="180deg 45deg auto"
+    field-of-view="5deg">
+</model-viewer>
+
+
+<div class="scene">
+
+    <div class="scene-left">
+        <h1 class="id">01</h1>
+        <hr class="left-line" /> 
+        <h2 class="tire-meta">V2 - Console portable</h2>
+        <p class="date">3 mai 2025</p>
+        <ul>
+            
+                <li>
+                    <div class="tag-container">
+                    <a href="/tag/?filter=3D">3D</a> <!-- Solution trouvé grâce à l'IAg en lien avec les deux dernières lignes de tag.html-->
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="tag-container">
+                    <a href="/tag/?filter=DIY">DIY</a> <!-- Solution trouvé grâce à l'IAg en lien avec les deux dernières lignes de tag.html-->
+                    </div>
+                </li>
+            
+                <li>
+                    <div class="tag-container">
+                    <a href="/tag/?filter=print">print</a> <!-- Solution trouvé grâce à l'IAg en lien avec les deux dernières lignes de tag.html-->
+                    </div>
+                </li>
+            
+        </ul>
+    </div>
+    <div class="scene-empty"></div>
+    <div class="scene-right-wrapper">
+        <div class="scene-right">
+            <h1 class="h1_title">Lorem</h1> 
+            <div class="md">
+            <h2>Lorem ipsum</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna. Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</p>
+
+            </div>
+        </div>
+        <div class="scene-right-phantom">  
+            <h1 class="h1_title-phantom">Lorem</h1> 
+            <div class="md">
+            <h2>Lorem ipsum</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit. Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna. Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.</p>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <footer class="gallery-foot">
+        <div class="gallery">
+        
+        <div class="gallery-item">
+            <a href="/blog/posts/05-dicepost/">
+                <model-viewer class="foot"
+                    src="/assets/models/dice.glb"
+                    alt="Dé 10 faces"
+                    exposure="0.3"
+                    camera-orbit="180deg 45deg auto"
+                    >
+                </model-viewer>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="/blog/posts/04-casque-post/">
+                <model-viewer class="foot"
+                    src="/assets/models/casque.glb"
+                    alt="Casque spartiate VR"
+                    exposure="0.3"
+                    camera-orbit="180deg 45deg auto"
+                    >
+                </model-viewer>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="/blog/posts/03-hand-post/">
+                <model-viewer class="foot"
+                    src="/assets/models/hand.glb"
+                    alt="Main de monstre scuplté en VR"
+                    exposure="0.3"
+                    camera-orbit="180deg 45deg auto"
+                    >
+                </model-viewer>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="/blog/posts/02-littlenightmare-post/">
+                <model-viewer class="foot"
+                    src="/assets/models/littlenight.glb"
+                    alt="Figurine Little Nightmare"
+                    exposure="0.3"
+                    camera-orbit="180deg 45deg auto"
+                    >
+                </model-viewer>
+            </a>
+        </div>
+        
+        <div class="gallery-item">
+            <a href="/blog/posts/01-console2025-post/">
+                <model-viewer class="foot"
+                    src="/assets/models/ConsoleV2Finalfull.glb"
+                    alt="V2 - Console portable"
+                    exposure="0.3"
+                    camera-orbit="180deg 45deg auto"
+                    >
+                </model-viewer>
+            </a>
+        </div>
+        
+        </div>
+    </footer>
+</body>
+
+<!-- Le script de synchronisation du scroll des div vient de ce site :
+https://www.iditect.com/program-example/javascript--how-do-i-synchronize-the-scroll-position-of-two-divs.html
+-->
+
+<script>
+    // Function to synchronize scroll position
+    function syncScroll(div1, div2) {
+        // Add scroll event listener to div1
+        div1.addEventListener('scroll', function () {
+            // Synchronize the scroll position of div2 with div1
+            div2.scrollTop = div1.scrollTop;
+        });
+    }
+
+    // Get references to the divs
+    var div1 = document.querySelector('.scene-right-phantom .md');
+    var div2 = document.querySelector('.scene-right .md');
+
+    // Synchronize the scroll position of div2 with div1
+    syncScroll(div1, div2);
+</script>
+
+<!-- Script de Calvin Guillot :
+ https://stackoverflow.com/questions/18481308/set-mouse-wheel-to-horizontal-scroll-using-css/66917534#66917534
+ -->
+
+<script>
+var item = document.querySelector(".gallery");
+
+  window.addEventListener("wheel", function (e) {
+    if (e.deltaY > 0) item.scrollLeft += 100;
+    else item.scrollLeft -= 100;
+    item.style.scrollBehavior = "smooth"; // Ashutosh Baitharu même conversation.
+  });
+</script>
+
+<!-- ATTENTION ! Le script suivant a été fait par IAg :
+ -->
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const viewer = document.querySelector('model-viewer');
+
+    function applySettings() {
+        if (window.innerWidth <= 768) {
+            viewer.setAttribute('camera-target', '0m 0m 0m');
+            viewer.setAttribute('field-of-view', '5deg');
+        } else {
+            viewer.setAttribute('camera-target', '-40m 0m 0m');
+            viewer.setAttribute('field-of-view', '10deg');
+        }
+    }
+
+    applySettings();
+    window.addEventListener('resize', applySettings);
+});
+</script>
+
+    
+</body>
+</html>
