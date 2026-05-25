@@ -104,10 +104,10 @@ https://stackoverflow.com/questions/18481308/set-mouse-wheel-to-horizontal-scrol
 -->
 <script>
 var item = document.querySelector(".gallery-home");
-if (item) {
-   item.addEventListener("wheel", function(e) {
-      item.scrollLeft += e.deltaY;
-      e.preventDefault();
-   }, { passive: false });
-}
+
+  window.addEventListener("wheel", function (e) {
+    if (e.deltaY > 0) item.scrollLeft += 100;
+    else item.scrollLeft -= 100;
+    item.style.scrollBehavior = "smooth"; // Ashutosh Baitharu même conversation.
+  });
 </script>
