@@ -5,7 +5,7 @@ h1_title: "Lorem"
 id : "01"
 date: 2025-05-04
 author: Yann
-model: "../../assets/models/ConsoleV2Finalfull.glb"
+model: "/assets/models/ConsoleV2Finalfull.glb"
 tags:
     - "3D"
     - "DIY"

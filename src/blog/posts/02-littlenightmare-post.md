@@ -5,7 +5,7 @@ h1_title : "Lorem ipsum"
 id : "02"
 date: 2023-12-30
 author: Yann
-model: "/assets/models/littlenight.glb"
+model: "../assets/models/littlenight.glb"
 tags:
     - "art"
     - "3D"
