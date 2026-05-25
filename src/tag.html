@@ -133,7 +133,7 @@ div.gallery-item-tags model-viewer.tag {
           <div class="gallery-item-tags">
               <a href="{{ post.url }}">
                   <model-viewer class="tag"
-                      src="{{ post.data.model }}"
+                      src="{{ post.data.model | url }}"
                       alt="{{ post.data.title }}"
                       exposure="0.3"
                       camera-orbit="180deg 45deg auto"
