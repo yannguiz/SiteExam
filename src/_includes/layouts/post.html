@@ -62,7 +62,7 @@ https://www.w3schools.com/Css/css_image_gallery.asp
         <div class="gallery-item">
             <a href="{{ post.url }}">
                 <model-viewer class="foot"
-                    src="{{ post.data.model }}"
+                    src="{{ post.data.model | url }}"
                     alt="{{ post.data.title }}"
                     exposure="0.3"
                     camera-orbit="180deg 45deg auto"

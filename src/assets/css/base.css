@@ -4,7 +4,7 @@
 
 html {
   background:
-    url('/assets/images/nnnoise.svg'),
+    url('../images/nnnoise.svg'),
     linear-gradient(217deg, #444143, transparent 70.71%),
     linear-gradient(127deg, rgba(150, 5, 176, 0.944), transparent 70.71%),
     linear-gradient(336deg, rgb(12, 188, 12), transparent 70.71%);
