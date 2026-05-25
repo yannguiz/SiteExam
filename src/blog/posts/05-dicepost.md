@@ -5,7 +5,7 @@ h1_title : "Lorem ipsum"
 id : "04"
 date: 2022-12-30
 author: Yann
-model: "/src/assets/models/dice.glb"
+model: "/assets/models/dice.glb"
 tags:
     - "print"
     - "3D"
